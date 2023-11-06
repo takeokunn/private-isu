@@ -4,5 +4,8 @@ RUN apt-get update && apt-get install -y software-properties-common ca-certifica
     && apt-add-repository --yes --update ppa:ansible/ansible \
     && apt-get install -y ansible
 
+WORKDIR /workspace
+
 COPY ansible.cfg /etc/ansible/ansible.cfg
-COPY hosts.yml /etc/ansible/hosts.yml
+COPY hosts /etc/ansible/hosts.yml
+COPY playbook/ /workspace/playbook

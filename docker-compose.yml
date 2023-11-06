@@ -5,7 +5,9 @@ services:
     build: ansible
     command: tail -f /dev/null
     volumes:
-      - ./ansible:/etc/ansible
+      - ./ansible/ansible.cfg:/etc/ansible/ansible.cfg
+      - ./ansible/hosts:/etc/ansible/hosts
+      - ./ansible/playbook:/workspace/playbook
   node:
     privileged: true
     build: ./node
