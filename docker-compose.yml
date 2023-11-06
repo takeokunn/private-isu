@@ -1,5 +1,11 @@
 version: '3.8'
 
+x-node: &node
+  build: ./node
+  privileged: true
+  command: /usr/sbin/sshd -D
+  tty: true
+
 services:
   ansible:
     build: ansible
@@ -8,11 +14,11 @@ services:
       - ./ansible/ansible.cfg:/etc/ansible/ansible.cfg
       - ./ansible/hosts:/etc/ansible/hosts
       - ./ansible/playbook:/workspace/playbook
-  node:
-    privileged: true
-    build: ./node
-    command: /usr/sbin/sshd -D
+  node1:
+    <<: *node
     ports:
       - 2222:22
-      - 8000:80
-      - 13306:3306
+  node2:
+    <<: *node
+    ports:
+      - 2223:22
