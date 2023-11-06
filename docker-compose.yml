@@ -18,7 +18,3 @@ services:
     <<: *node
     ports:
       - 2222:22
-  node2:
-    <<: *node
-    ports:
-      - 2223:22

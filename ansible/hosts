@@ -5,7 +5,3 @@ all:
       ansible_host: node1
       ansible_user: root
       ansible_password: P@ssw0rd
-    node2:
-      ansible_host: node2
-      ansible_user: root
-      ansible_password: P@ssw0rd

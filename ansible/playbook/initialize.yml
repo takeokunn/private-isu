@@ -5,17 +5,22 @@
     - name: Install nginx
       apt:
         name: nginx
-        state: present
+        state: latest
 
     - name: Install mysql
       apt:
         name: mysql-server
-        state: present
+        state: latest
 
     - name: Install memcached
       apt:
         name: memcached
-        state: present
+        state: latest
+
+    - name: Install netdata
+      apt:
+        name: netdata
+        state: latest
 
 - name: Install tools
   hosts: all
@@ -24,7 +29,12 @@
     - name: Install percona-toolkit
       apt:
         name: percona-toolkit
-        state: present
+        state: latest
+
+    - name: Install netdata
+      apt:
+        name: netdata
+        state: latest
 
     - name: Download mysqldef tar.gz archive
       get_url:
