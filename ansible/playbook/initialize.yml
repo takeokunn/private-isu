@@ -2,101 +2,15 @@
 - name: Install servers
   hosts: all
   tasks:
-    - name: Install nginx
-      apt:
-        name: nginx
-        state: latest
-
-    - name: Install mysql
-      apt:
-        name: mysql-server
-        state: latest
-
-    - name: Install memcached
-      apt:
-        name: memcached
-        state: latest
-
-    - name: Install netdata
-      apt:
-        name: netdata
-        state: latest
+    - import_tasks: ../roles/servers/nginx.yml
+    - import_tasks: ../roles/servers/mysql.yml
+    - import_tasks: ../roles/servers/memcached.yml
+    - import_tasks: ../roles/servers/netdata.yml
 
 - name: Install tools
   hosts: all
   become: true
   tasks:
-    - name: Install percona-toolkit
-      apt:
-        name: percona-toolkit
-        state: latest
-
-    - name: Install netdata
-      apt:
-        name: netdata
-        state: latest
-
-    - name: Download mysqldef tar.gz archive
-      get_url:
-        url: https://github.com/k0kubun/sqldef/releases/latest/download/mysqldef_linux_amd64.tar.gz
-        dest: /tmp/mysqldef.tar.gz
-        mode: '0644'
-
-    - name: Extract mysqldef tar.gz archive
-      unarchive:
-        src: /tmp/mysqldef.tar.gz
-        dest: /usr/local/bin
-        remote_src: true
-        mode: '0755'
-
-    - name: Download psqldef tar.gz archive
-      get_url:
-        url: https://github.com/k0kubun/sqldef/releases/latest/download/psqldef_linux_amd64.tar.gz
-        dest: /tmp/psqldef.tar.gz
-        mode: '0644'
-
-    - name: Extract psqldef tar.gz archive
-      unarchive:
-        src: /tmp/psqldef.tar.gz
-        dest: /usr/local/bin
-        remote_src: true
-        mode: '0755'
-
-    - name: Download sqlite3def tar.gz archive
-      get_url:
-        url: https://github.com/k0kubun/sqldef/releases/latest/download/sqlite3def_linux_amd64.tar.gz
-        dest: /tmp/sqlite3def.tar.gz
-        mode: '0644'
-
-    - name: Extract sqlite3def tar.gz archive
-      unarchive:
-        src: /tmp/sqlite3def.tar.gz
-        dest: /usr/local/bin
-        remote_src: true
-        mode: '0755'
-
-    - name: Download sqlite3def tar.gz archive
-      get_url:
-        url: https://github.com/k0kubun/sqldef/releases/latest/download/sqlite3def_linux_amd64.tar.gz
-        dest: /tmp/sqlite3def.tar.gz
-        mode: '0644'
-
-    - name: Extract sqlite3def tar.gz archive
-      unarchive:
-        src: /tmp/sqlite3def.tar.gz
-        dest: /usr/local/bin
-        remote_src: true
-        mode: '0755'
-
-    - name: Download alp tar.gz archive
-      get_url:
-        url: https://github.com/tkuchiki/alp/releases/download/v1.0.21/alp_linux_amd64.tar.gz
-        dest: /tmp/alp.tar.gz
-        mode: '0644'
-
-    - name: Extract alp tar.gz archive
-      unarchive:
-        src: /tmp/alp.tar.gz
-        dest: /usr/local/bin
-        remote_src: true
-        mode: '0755'
+    - import_tasks: ../roles/tools/percona-toolkit.yml
+    - import_tasks: ../roles/tools/sqldef.yml
+    - import_tasks: ../roles/tools/alp.yml

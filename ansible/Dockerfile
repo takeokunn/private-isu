@@ -9,3 +9,4 @@ WORKDIR /workspace
 COPY ./ansible.cfg /etc/ansible/ansible.cfg
 COPY ./hosts /etc/ansible/hosts.yml
 COPY ./playbook/ /workspace/playbook
+COPY ./roles/ /workspace/roles

@@ -1,0 +1,5 @@
+---
+- name: Install percona-toolkit
+  apt:
+    name: percona-toolkit
+    state: latest
