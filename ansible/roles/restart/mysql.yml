@@ -1,0 +1,12 @@
+---
+- name: Copy mysqld.cnf
+  copy:
+    src: ../../etc/mysql/mysqld.cnf
+    dest: /etc/mysql/mysql.conf.d/mysqld.cnf
+    mode: 0644
+
+- name: Restart mysql
+  service:
+    name: mysql
+    state: restarted
+    enabled: yes

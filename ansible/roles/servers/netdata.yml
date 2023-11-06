@@ -1,5 +1,0 @@
----
-- name: Install netdata
-  apt:
-    name: netdata
-    state: latest

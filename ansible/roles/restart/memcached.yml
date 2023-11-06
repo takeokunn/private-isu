@@ -1,0 +1,12 @@
+---
+- name: Copy memcached.conf
+  copy:
+    src: ../../etc/memcache/memcached.conf
+    dest: /etc/memcached.conf
+    mode: 0644
+
+- name: Restart memcached
+  service:
+    name: memcached
+    state: restarted
+    enabled: yes

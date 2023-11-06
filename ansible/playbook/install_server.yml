@@ -1,0 +1,8 @@
+---
+- name: Install server
+  hosts: all
+  tasks:
+    - import_tasks: ../roles/initialize/server/nginx.yml
+    - import_tasks: ../roles/initialize/server/mysql.yml
+    - import_tasks: ../roles/initialize/server/memcached.yml
+    - import_tasks: ../roles/initialize/server/netdata.yml

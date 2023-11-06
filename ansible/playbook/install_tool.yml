@@ -1,0 +1,7 @@
+---
+- name: Install tools
+  hosts: all
+  tasks:
+    - import_tasks: ../roles/initialize/tools/percona-toolkit.yml
+    - import_tasks: ../roles/initialize/tools/sqldef.yml
+    - import_tasks: ../roles/initialize/tools/alp.yml

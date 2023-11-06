@@ -1,0 +1,11 @@
+---
+- name: Install netdata
+  apt:
+    name: netdata
+    state: latest
+
+- name: Start netdata
+  service:
+    name: netdata
+    state: started
+    enabled: yes

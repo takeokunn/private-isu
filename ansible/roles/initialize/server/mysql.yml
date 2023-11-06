@@ -1,0 +1,18 @@
+---
+- name: Install mysql
+  apt:
+    name: mysql-server
+    state: latest
+
+- name: Copy my.cnf
+  copy:
+    src: ../../../etc/mysql/my.cnf
+    dest: /etc/mysql/my.cnf
+    mode: 0644
+
+- name: Start mysql
+  shell: service mysql start
+  # service:
+  #   name: mysql
+  #   state: started
+  #   enabled: yes

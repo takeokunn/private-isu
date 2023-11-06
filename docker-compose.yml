@@ -12,10 +12,12 @@ services:
     command: tail -f /dev/null
     volumes:
       - ./ansible/ansible.cfg:/etc/ansible/ansible.cfg
-      - ./ansible/hosts:/etc/ansible/hosts
+      - ./ansible/hosts.yml:/etc/ansible/hosts
       - ./ansible/playbook:/workspace/playbook
       - ./ansible/roles:/workspace/roles
-  node1:
+      - ./ansible/etc:/workspace/etc
+  node:
     <<: *node
     ports:
       - 2222:22
+      - 3306:3306

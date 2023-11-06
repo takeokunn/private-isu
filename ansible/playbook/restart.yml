@@ -1,0 +1,7 @@
+---
+- name: Restart servers
+  hosts: all
+  tasks:
+    - import_tasks: ../roles/restart/mysql.yml
+    - import_tasks: ../roles/restart/nginx.yml
+    - import_tasks: ../roles/restart/memcached.yml
