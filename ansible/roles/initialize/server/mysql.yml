@@ -12,7 +12,3 @@
 
 - name: Start mysql
   shell: service mysql start
-  # service:
-  #   name: mysql
-  #   state: started
-  #   enabled: yes

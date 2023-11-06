@@ -16,8 +16,11 @@ services:
       - ./ansible/playbook:/workspace/playbook
       - ./ansible/roles:/workspace/roles
       - ./ansible/etc:/workspace/etc
-  node:
+  node1:
     <<: *node
     ports:
       - 2222:22
-      - 3306:3306
+  node2:
+    <<: *node
+    ports:
+      - 2223:22
