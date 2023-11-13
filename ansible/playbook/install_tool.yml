@@ -2,6 +2,12 @@
 - name: Install tools
   hosts: all
   tasks:
+    - name: apt update
+      apt:
+        update_cache: yes
+    - name: apt upgrade
+      apt:
+        upgrade: yes
     - import_tasks: ../roles/initialize/tools/percona-toolkit.yml
     - import_tasks: ../roles/initialize/tools/sqldef.yml
     - import_tasks: ../roles/initialize/tools/alp.yml
